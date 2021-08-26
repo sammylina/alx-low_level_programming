@@ -4,7 +4,8 @@
  * main - entry pointo the f ile
  * Return: returns zero
  */
-int main(void){
+int main(void)
+{
 
 	int i;
 	char c;
