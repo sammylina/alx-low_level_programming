@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 
-/*
+/**
+ * main - entry of program
  * Description: prints the value of
  * n is negative, positive or zero
  * Return: 0 if exits coreectyle
