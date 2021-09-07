@@ -1,4 +1,3 @@
-#include "main.h"
 
 /**
  * reset_to_98 - reset the param value to 98
@@ -8,7 +7,7 @@
  * Return: Nothing
  */
 
-void return_to_98(int *n)
+void reset_to_98(int *n)
 {
-	*n = 89;
+	*n = 98;
 }
