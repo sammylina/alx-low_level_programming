@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * _strncpy - copy @n bytes of @src t @dest
@@ -14,9 +15,12 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	int i;
+	int src_len = strlen(src);
 
 	for (i = 0; i < n && src[i] != '\0'; i++)
 		*(dest + i) = src[i];
+	if (n >= src_len)
+		i = src_len - 1;
 	for ( ; i < n; i++)
 		*(dest + i) = src[i];
 
