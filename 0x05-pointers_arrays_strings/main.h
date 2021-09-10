@@ -1,1 +1,1 @@
-void rev_string(char *str);
+void print_array(int *a, int n);
