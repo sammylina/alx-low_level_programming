@@ -1,3 +1,4 @@
+#include <string.h>
 /**
  * _strcpy - @src string to @dest
  * @src: source of string to copy from
