@@ -11,7 +11,8 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	int decimal = 0;
+
+	unsigned int decimal;
 
 	if (!b)
 	{
@@ -19,19 +20,17 @@ unsigned int binary_to_uint(const char *b)
 	}
 	else
 	{
-		int binary = atoi(b), last_digit, base = 1;
+		decimal = 0;
 
 		while (*b)
 		{
 			if ((*b == '0') || (*b == '1'))
 			{
-				last_digit = binary % 10;
-				if (last_digit == 1)
+				decimal <<= 1;
+				if (*b == '1')
 				{
-					decimal  = decimal + last_digit * base;
+					decimal += 1;
 				}
-				base  = base * 2;
-				binary = binary / 10;
 			}
 			else
 			{
