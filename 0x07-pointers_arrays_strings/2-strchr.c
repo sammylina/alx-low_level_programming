@@ -1,5 +1,6 @@
+#include <string.h>
+#include <stdio.h>
 #include "main.h"
-#include <stddef.h>
 /**
  * _strchr - find the first occurance of @c in string
  * @s: pointer to the string
@@ -10,11 +11,14 @@
 
 char *_strchr(char *s, char c)
 {
-	while (*s)
+	unsigned int i;
+
+	for (i = 0; i <= strlen(s); i++)
 	{
-		if (*s == c)
-			return (s);
-		s++;
+		if (s[i] == c)
+		{
+			return (s+i);
+		}
 	}
 	return (NULL);
 }
