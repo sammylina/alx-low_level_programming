@@ -2,12 +2,12 @@
 #include <stddef.h>
 
 /**
- * _strpbrk - get location of first occurance of a char 
+ * _strpbrk - get location of first occurance of a char
  * in a string
  * @s: pointer to string
  * @accept: pointer to string of chars
  *
- * Return: pointer to byte in @s that matches one of the bytes in 
+ * Return: pointer to byte in @s that matches one of the bytes in
  * @accept or NULL
  */
 char *_strpbrk(char *s, char *accept)
