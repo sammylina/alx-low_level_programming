@@ -34,14 +34,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 		rsz = read(fd, buff, letters);
 		wsz = write(STDIN_FILENO, buff, rsz);
-		if (wsz < 0)
+		if (wsz == -1)
 		{
 		return (0);
 		}
-		if (wsz != rsz)
-		{
-		return (0);
-		}
+		
 	}
 	free(buff);
 	close(fd);
