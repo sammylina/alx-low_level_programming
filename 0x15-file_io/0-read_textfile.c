@@ -23,7 +23,7 @@ int read_textfile(const char *filename, int letters)
 
 	if (filename == NULL)
 	{
-		exit(0);
+		exit(EXIT_FAIL);
 	}
 	buff = malloc(letters * sizeof(char));
 	if (buff)
@@ -32,18 +32,18 @@ int read_textfile(const char *filename, int letters)
 
 		if (fd < 0)
 		{
-			exit(0);
+			exit(EXIT_FAIL);
 		}
 
 		rsz = read(fd, buff, letters);
-		wsz = write(1, buff, rsz);
+		wsz = write(STDIN_FILENO, buff, rsz);
 		if (wsz < 0)
 		{
-			exit(0);
+			exit(EXIT_FAIL);
 		}
 		if (wsz != rsz)
 		{
-			exit(0);
+			exit(EXIT_FAIL);
 		}
 	}
 	free(buff);
