@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
+#include "main.h"
 /**
  * read_textfile - read text from a file and print
  * the content and also return no of chars read
@@ -16,9 +12,10 @@
  * letters
  */
 
-int read_textfile(const char *filename, int letters)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, rsz, wsz;
+	int fd;
+	ssize_t rsz, wsz;
 	char *buff;
 
 	if (filename == NULL)
@@ -47,5 +44,6 @@ int read_textfile(const char *filename, int letters)
 		}
 	}
 	free(buff);
+	close(fd);
 	return (rsz);
 }
