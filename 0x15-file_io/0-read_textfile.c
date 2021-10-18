@@ -10,7 +10,7 @@
  * @letters: no of chars to read
  *
  * Return: if sucessful not of chars read
- * 0 if filename is NULL or 
+ * 0 if filename is NULL or
  * open fail to open the file or
  * write dosen't write the expected amount of
  * letters
@@ -41,11 +41,11 @@ int read_textfile(const char *filename, int letters)
 		{
 			exit(0);
 		}
-		if( wsz != rsz)
+		if (wsz != rsz)
 		{
 			exit(0);
 		}
 	}
 	free(buff);
-	return rsz;
+	return (rsz);
 }
