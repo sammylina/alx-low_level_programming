@@ -20,7 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (filename == NULL)
 	{
-		exit(EXIT_FAILURE);
+		return (0);
 	}
 	buff = malloc(letters * sizeof(char));
 	if (buff)
@@ -29,18 +29,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 		if (fd < 0)
 		{
-			exit(EXIT_FAILURE);
+		return (0);
 		}
 
 		rsz = read(fd, buff, letters);
 		wsz = write(STDIN_FILENO, buff, rsz);
 		if (wsz < 0)
 		{
-			exit(EXIT_FAILURE);
+		return (0);
 		}
 		if (wsz != rsz)
 		{
-			exit(EXIT_FAILURE);
+		return (0);
 		}
 	}
 	free(buff);
