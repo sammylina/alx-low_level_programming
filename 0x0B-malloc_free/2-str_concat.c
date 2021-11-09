@@ -15,21 +15,31 @@
 char *str_concat(char *s1, char *s2)
 {
 
-	int s1_size, s2_size;
 	char *new_str;
+	int size, i;
 
 	if (s1 == NULL)
-		s1_size = 0;
-	else
-		s1_size = strlen(s1);
+		s1 = "";
 	if (s2 == NULL)
-		s2_size = 0;
-	else
-		s2_size = strlen(s2);
-	new_str = malloc(s1_size + s2_size + 1);
+		s2 = "";
+	size = strlen(s1) + strlen(s2) + 1;
+	new_str = malloc(size * sizeof(char));
 	if (new_str == NULL)
 		return (NULL);
-	strcat(new_str, s1);
+	i = 0;
+	while (*s1)
+	{
+		new_str[i] = *s1;
+		s1++;
+		i++;
+	}
+	while (*s2)
+	{
+		new_str[i] = *s2;
+		s2++;
+		i++;
+	}
+	new_str[i] = '\0';
 
 	return (new_str);
 }
