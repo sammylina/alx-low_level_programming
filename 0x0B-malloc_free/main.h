@@ -1,4 +1,8 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
-char *str_concat(char *s1, char *s2);
+
+#include <stdlib.h>
+
+int **alloc_grid(int width, int height);
+
 #endif
