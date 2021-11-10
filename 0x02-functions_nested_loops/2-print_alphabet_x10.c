@@ -1,21 +1,23 @@
 #include "main.h"
 
 /**
- * print_alphabet_10x - prints a-z 10_X
+ * print_alphabet_x10 - print a-z 10 times
  *
- * Description: it uses nested loop
- *
- * Return: 0
+ * Return: Nothing
  */
 
-void print_alphabet_10x(void)
+void print_alphabet_x10(void)
 {
 	int i, j;
 
-	for (i = 0; i < 10; i++)
+	j = 10;
+	while (j)
 	{
-		for (j = 'a'; j < 'z'; j++)
-			_putchar(j);
+	for (i = 97; i <= 122; i++)
+	{
+		_putchar(i);
 	}
 	_putchar(10);
+	j--;
+	}
 }
