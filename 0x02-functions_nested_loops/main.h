@@ -1,2 +1,2 @@
 int _putchar(int c);
-int _abs(int n);
+int print_last_digit(int);
