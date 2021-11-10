@@ -1,2 +1,2 @@
 int _putchar(int c);
-int print_last_digit(int);
+void jack_bauer(void);
