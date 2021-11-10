@@ -2,8 +2,8 @@
 #define _MAIN_H_
 
 #include <stdlib.h>
+#include <string.h>
 
-int **alloc_grid(int width, int height);
-void free_grid(int **grid, int height);
+char *argstostr(int ac, char **av);
 
 #endif
