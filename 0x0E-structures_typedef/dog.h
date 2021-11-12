@@ -2,6 +2,7 @@
 #define _DOG_H_
 
 #include <stddef.h>
+#include <stdio.h>
 /**
  * struct dog - dog type structure
  * @name: pointer to the name of the dog
@@ -19,5 +20,6 @@ struct dog
 };
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
+void print_dog(struct dog *d);
 
 #endif
