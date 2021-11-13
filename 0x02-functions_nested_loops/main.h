@@ -1,6 +1,13 @@
+#ifndef _MAIN_H
+#define _MAIN_H
+
+#include <stdio.h>
+#include <unistd.h>
+
+int number_of_digit(int);
+void print_num(int num);
 int _putchar(int c);
-void times_table(void);
-void print_formated_digit(int n);
-void print_formated_first_digit(int n);
-void print_formated_last_digit(int n);
-int add(int, int);
+int _pow(int num, int times);
+void print_to_98(int n);
+
+#endif
