@@ -31,16 +31,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_end(nums);
 	_putchar(10);
 }
-/**
- * _putchar - print a character
- * @c: intergr to print
- *
- * Return: integer value of the character
- */
-int _putchar(int c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  * _pow - calculate x^y
