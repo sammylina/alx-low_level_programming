@@ -9,8 +9,11 @@
 
 void free_listint2(listint_t **head)
 {
-	free_listint(*head);
-	*head = NULL;
+	if (head != NULL)
+	{
+		free_listint(*head);
+		*head = NULL;
+	}
 }
 /**
  * free_listint - free a linked list(listint_t )
