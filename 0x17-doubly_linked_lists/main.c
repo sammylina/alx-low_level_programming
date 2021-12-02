@@ -1,34 +1,86 @@
-#include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
+size_t print_dlistint_back(const dlistint_t *h)
+{
+	const dlistint_t *current_node;
+	size_t node_size;
+
+	if (h == NULL)
+	{
+		return (0);
+	}
+	current_node = h;
+	node_size = 0;
+	while (current_node)
+	{
+		node_size++;
+		printf("%d\n", current_node->n);
+		current_node = current_node->prev;
+	}
+	return (node_size);
+}
+
+size_t _print_dlistint_backward(const dlistint_t *h)
+{
+	const dlistint_t *tail;
+	size_t list_size;
+	
+	tail = h;
+	while (tail->next != NULL)
+	{
+		tail = tail->next;	
+	}
+	list_size = print_dlistint_back(tail);
+	return (list_size);
+}
+
 /**
- * main - check the code
+ * _free_dlist - Realease the memory allocated for a list
  *
- * Return: Always EXIT_SUCCESS.
+ * @head: A pointer to the first node of the list to free
+ */
+void _free_dlist(dlistint_t *head)
+{
+	if (head)
+	{
+		_free_dlist(head->next);
+		free(head);
+	}
+}
+
+/**
+ * main - check the code for Holberton School students.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-    dlistint_t *head;
-    dlistint_t *new;
-    dlistint_t hello = {8, NULL, NULL};
-    size_t n;
+	dlistint_t *head;
+	int ints[2] = {
+		0,
+		9
+	};
+	dlistint_t *ptr;
+	int i;
+	size_t n;
 
-    head = &hello;
-    new = malloc(sizeof(dlistint_t));
-    if (new == NULL)
-    {
-        dprintf(2, "Error: Can't malloc\n");
-        return (EXIT_FAILURE);
-    }
-    new->n = 9;
-    head->prev = new;
-    new->next = head;
-    new->prev = NULL;
-    head = new;
-    n = dlistint_len(head);
-    printf("-> %lu elements\n", n);
-    free(new);
-    return (EXIT_SUCCESS);
+	head = NULL;
+	for (i = 0; i < 2; ++i)
+	{
+		ptr = add_dnodeint(&head, ints[i]);
+		if (!ptr)
+		{
+			printf("Failed\n");
+			_free_dlist(head);
+			return (1);
+		}
+	}
+	n = print_dlistint(head);
+	printf("-> %lu elements\n", n);
+	n = _print_dlistint_backward(head);
+	printf("-> %lu elements\n", n);
+	_free_dlist(head);
+	return (0);
 }
