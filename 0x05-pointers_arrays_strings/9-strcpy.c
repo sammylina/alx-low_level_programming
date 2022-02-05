@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdio.h>
 /**
  * _strcpy - @src string to @dest
  * @src: source of string to copy from
@@ -13,12 +14,12 @@ char *_strcpy(char *dest, char *src)
 {
 	int i;
 
-	for (i = 0; src[i] != '\0'; i++)
+	i = 0;
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
+		i += 1;
 	}
-	for ( ; i < strlen(src); i++)
-		dest[i] = '\0';
-
+	dest[i] = '\0';
 	return (dest);
 }
