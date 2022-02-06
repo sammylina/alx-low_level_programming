@@ -44,5 +44,6 @@ char *cap_string(char *str)
 			}
 		}
 	}
+	str[0] = str[0] - 32;
 	return (str);
 }
