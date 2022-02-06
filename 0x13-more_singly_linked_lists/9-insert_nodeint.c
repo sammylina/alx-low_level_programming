@@ -20,8 +20,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	}
 	idxnode = *head;
-	i = 2;
-	while (i != idx)
+	i = 1;
+	while (i != idx && idxnode->next)
 	{
 		i += 1;
 		idxnode = idxnode->next;
