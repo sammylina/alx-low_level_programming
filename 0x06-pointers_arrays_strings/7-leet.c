@@ -10,30 +10,21 @@
 
 char *leet(char *str)
 {
-	int i;
+	int i, j;
+	int lower[] = {97, 101, 111, 116, 108};
+	int upper[] = {65, 69, 79, 84, 76};
+	int number[] = {52, 51, 48, 55, 49};
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
+		for (j = 0; j < 5; j++)
 		{
-			str[i] = '4';
+			if (str[i] == lower[j] || str[i] == upper[j])
+			{
+				str[i] = number[j];
+			}
 		}
-		else if (str[i] == 'e' || str[i] == 'E')
-		{
-			str[i] = '3';
-		}
-		else if (str[i] == 'o' || str[i] == 'O')
-		{
-			str[i] = '0';
-		}
-		else if (str[i] == 't' || str[i] == 'T')
-		{
-			str[i] = '7';
-		}
-		else if (str[i] == 'l' || str[i] == 'L')
-		{
-			str[i] = '1';
-		}
+		j = 0;
 	}
 	return (str);
 }
