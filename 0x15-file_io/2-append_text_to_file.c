@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -30,7 +31,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		r_value = -1;
 	}
-	n_write = write(fd, text_content, sizeof(text_content));
+	n_write = write(fd, text_content, strlen(text_content));
 	if (n_write == -1)
 	{
 		r_value = -1;
