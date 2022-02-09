@@ -15,20 +15,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *node;
+	char *value_cpy;
 
-	if (!strlen(key))
+	if (!strlen(key) || !ht)
 	{
 		return (-1);
 	}
 
-	index = key_index((const unsigned char*)key, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 	{
 		return (-1);
 	}
+	value_cpy = strdup(value);
 	node->key = (char *)key;
-	node->value = (char *)value;
+	node->value = value_cpy;
 
 	if (ht->array[index] == NULL)
 	{
