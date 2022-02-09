@@ -1,4 +1,3 @@
-#include "hash_tables.h"
 #include <stddef.h>
 
 /**
@@ -10,7 +9,7 @@
 
 unsigned long int hash_djb2(const unsigned char *str)
 {
-	size_t hash;
+	unsigned long int hash;
 	int c;
 
 	hash = 5381;
