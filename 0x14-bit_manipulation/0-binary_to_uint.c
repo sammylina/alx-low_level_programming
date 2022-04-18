@@ -1,43 +1,33 @@
-#include <stdlib.h>
+#include "main.h"
 
 /**
- * binary_to_uint - convert binary to decimal value
- * @b: a binary string
+ * binary_to_uint - convert string binary to decimal
+ * @b: string binary value
  *
- * Description: convert binary string to its equivalent deviaml
- * value and return it back
- * Return: the converted decimal if sucessful or 0 if fails
+ * Return: 0 if @b is NULL or it contains other that 0 and 1
+ *	   otherwise return the integer equivalent
  */
 
 unsigned int binary_to_uint(const char *b)
 {
+	int i;
+	size_t value = 0;
+	int bit = 0;
 
-	unsigned int decimal;
-
-	if (!b)
+	if (b == NULL)
 	{
 		return (0);
 	}
-	else
-	{
-		decimal = 0;
 
-		while (*b)
+	for (i = 0; i < strlen(b); i++)
+	{
+		if ((b[i] != '1') && (b[i] != '0'))
 		{
-			if ((*b == '0') || (*b == '1'))
-			{
-				decimal <<= 1;
-				if (*b == '1')
-				{
-					decimal += 1;
-				}
-			}
-			else
-			{
-				return (0);
-			}
-			b = b + 1;
+			return (0);
 		}
+		bit = b[i] - 48;
+		value <<= 1;
+		value |= bit;
 	}
-	return (decimal);
+	return (value);
 }
