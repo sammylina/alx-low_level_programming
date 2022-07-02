@@ -6,7 +6,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	const char *value_copy;
 	hash_node_t *new_node;
 	unsigned long int key_idx;
-	if (key == NULL) return (1);
+	if (key == NULL || ht == NULL || value == NULL) return (1);
 
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
