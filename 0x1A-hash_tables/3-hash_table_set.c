@@ -30,10 +30,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	head = current;
 	while (current)
 	{
-		if (current->key == key)
+		if (strcmp(current->key, key) == 0)
 		{
 			free(new_node);
 			current->value = strdup(value);
+			if (current->value == NULL)
+				return (0);
 			return (1);
 		}
 		else if (current->next == NULL)
