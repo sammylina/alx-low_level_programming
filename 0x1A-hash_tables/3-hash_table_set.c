@@ -6,7 +6,7 @@
  * @key: key in the hash table
  * @value: value for the corresponding key
  *
- * Return: 1 if it fails and 0 on success
+ * Return: 0 if it fails and 1 on success
  */
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
@@ -17,7 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node;
 
 	if (ht == NULL || key == NULL || value == NULL)
-		return (1);
+		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
 	current = ht->array[index];
@@ -25,7 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node = malloc(sizeof(hash_node_t));
 	if (new_node == NULL)
 	{
-		return (1);
+		return (0);
 	}
 	head = current;
 	while (current)
@@ -33,7 +33,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (current->key == key)
 		{
 			current->value = strdup(value);
-			return (0);
+			return (1);
 		}
 		else if (current->next == NULL)
 		{
@@ -42,7 +42,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			new_node->next = NULL;
 			new_node->next = head;
 			ht->array[index] = new_node;
-			return (0);
+			return (1);
 		}
 		current = current->next;
 	}
@@ -51,5 +51,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->next = NULL;
 	ht->array[index] = new_node;
 
-	return (0);
+	return (1);
 }
