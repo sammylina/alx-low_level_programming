@@ -21,11 +21,13 @@ hash_table_t *hash_table_create(unsigned long int size)
 	table = malloc(sizeof(hash_table_t));
 	if (table == NULL)
 	{
+		free(table);
 		return (NULL);
 	}
 	array = calloc(size, 8);
 	if (array == NULL)
 	{
+		free(array);
 		free(table);
 		return (NULL);
 	}
