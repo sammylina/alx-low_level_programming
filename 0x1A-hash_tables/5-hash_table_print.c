@@ -10,16 +10,15 @@
 
 void hash_table_print(const hash_table_t *ht)
 {
-	unsigned long int i;
+	unsigned long int i = 0;
 	hash_node_t *current;
 	unsigned int comma_flag = 0;
 
 
 	if (ht == NULL)
 		return;
-	i = ht->size;
 	printf("{");
-	while (i)
+	while (i < ht->size)
 	{
 		if (ht->array[i] != NULL)
 		{
@@ -35,7 +34,7 @@ void hash_table_print(const hash_table_t *ht)
 			}
 			comma_flag = 1;
 		}
-		i--;
+		i++;
 	}
 	printf("}\n");
 }
