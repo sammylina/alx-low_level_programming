@@ -19,7 +19,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 
 	index = key_index((const unsigned char *)key, ht->size);
-	printf("hashed index: %d\n", index);
 	current = ht->array[index];
 
 	new_node = malloc(sizeof(hash_node_t));
@@ -27,7 +26,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		return (1);
 	}
-	printf("current node %p\n", current);
 	while (current)
 	{
 		if (current->key == key)
